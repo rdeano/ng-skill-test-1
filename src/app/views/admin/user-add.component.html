@@ -1,0 +1,70 @@
+<div class="animated" fadeIn>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <strong>Add User</strong>
+        </div>
+        <form class="form-horizontal" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+          <div class="card-body">
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label">Firstname</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" autocomplete="off" formControlName="firstname" />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label">Lastname</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" autocomplete="off" formControlName="lastname" />
+              </div>
+            </div>
+
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label">Email</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" autocomplete="off" formControlName="email"
+                       [ngClass]="{'is-invalid':email.invalid && (email.dirty || email.touched)}" />
+
+                <div *ngIf="email.errors?.required" class="invalid-feedback">
+                  Email is required.
+                </div>
+                <div *ngIf="email.errors?.email" class="invalid-feedback">
+                  Invalid Email Address
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-3 col-form-label">Password</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" autocomplete="off" formControlName="password"
+                        [ngClass]="{'is-invalid':password.invalid && (password.dirty || email.touched)}"/>
+
+                <div *ngIf="password.errors?.required" class="invalid-feedback">
+                  Password is required.
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="card-footer">
+            <div style="text-align: right">
+              <button [disabled]="profileForm.invalid" type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Save</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

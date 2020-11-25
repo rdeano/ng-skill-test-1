@@ -1,0 +1,38 @@
+<div class="animated" fadeIn>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>List of Users</strong>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email Address</th>                <th style="width:20%;"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of user">
+                  <td>{{item.firstname}} {{item.lastname}}</td>
+                  <td>{{item.email}}</td>
+                  <td>
+                    <a title="Info" routerLink="/admin/users/{{item.id}}" class="btn btn-xs btn-light"><i class="fa fa-info"></i></a>
+                    <a title="Edit" routerLink="/admin/users/edit/{{item.id}}" class="btn btn-xs btn-light"><i class="fa fa-edit"></i></a>&nbsp;
+                    <a title="Delete" [routerLink]="" (click)="remove(item)" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
